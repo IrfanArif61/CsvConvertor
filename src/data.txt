@@ -1,0 +1,204 @@
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+
+
+//   const queryClient = useQueryClient();
+
+  //   const mutation = useMutation({
+  //     mutationFn: () => {
+  //       return fetch("http://localhost:5173/", {
+  //         method: "post",
+  //         headers: {
+  //           Accept: "application/json",
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify({
+  //           name: "John",
+  //           phoneNumber: "123-456-7890",
+  //         }),
+  //       });
+  //     },
+  //     onSuccess: () => {
+  //       queryClient.invalidateQueries([""]);
+  //     },
+  //   });
+
+
+  //   mutation.mutate();
+
+
+
+
+
+
+import React, { useState } from "react";
+// import Papa from "papaparse";
+// import GridData from "./tasks/GridData";
+// import "./App.scss";
+// // import Add from "./Add";
+
+// function App() {
+//   const [rows, setRows] = useState([
+//     {
+//       id: 1,
+//       name: "John Doe",
+//       phoneNumber: "123-456-7890",
+//     },
+//   ]);
+
+//   const handleFileUpload = async (e) => {
+//     const files = e.target.files;
+//     let bulk = [];
+
+//     if (files) {
+//       Papa.parse(files[0], {
+//         complete: function (results) {
+//           if (results.data.length > 201) {
+//             // toast.error("File exceeds the maximum allowed rows (200).");
+//             return;
+//           }
+//           bulk = results.data.map((site, index) => ({
+//             id: index + 1,
+//             name: site[0],
+//             phoneNumber: site[1],
+//           }));
+//           setRows(bulk);
+//         },
+//       });
+//     }
+//     e.target.value = "";
+//   };
+
+//   const addRow = (newRowData) => {
+//     const newRow = {
+//       id: rows.length + 1,
+//       ...newRowData,
+//     };
+//     setRows([...rows, newRow]);
+//   };
+
+//   const columns = [
+//     { field: "id", headerName: "ID", width: 400 },
+//     { field: "name", type: "string", headerName: "Name", width: 500 },
+//     {
+//       field: "phoneNumber",
+//       type: "string",
+//       headerName: "Phone Number",
+//       width: 500,
+//     },
+//   ];
+
+//   return (
+//     <>
+//       <GridData rows={rows} columns={columns} addRow={addRow} />
+//       <input className="uploadIn" type="file" onChange={handleFileUpload} />
+//     </>
+//   );
+// }
+
+// export default App;
+
+
+
+
+import React from "react";
+// import { DataGrid, GridToolbar } from "@mui/x-data-grid";
+// import CsvBtn from "./csvButton";
+// import "./GridData.scss";
+// import Add from "./Add";
+
+// const GridData = ({ rows, columns, addRow }) => {
+//   const [open, setOpen] = useState(false);
+
+//   return (
+//     <>
+//       <div className="users">
+//         <div className="info">
+//           <button className="addNewBtn" onClick={() => setOpen(true)}>
+//             {" "}
+//             Add New{" "}
+//           </button>
+//         </div>
+//         <DataGrid
+//           rows={rows}
+//           columns={columns}
+//           initialState={{
+//             pagination: {
+//               paginationModel: {
+//                 pageSize: 10,
+//               },
+//             },
+//           }}
+//           slots={{
+//             toolbar: GridToolbar,
+//           }}
+//           slotProps={{
+//             toolbar: {
+//               showQuickFilter: true,
+//               quickFilterProps: {
+//                 debounceMs: 500,
+//               },
+//             },
+//           }}
+//           checkboxSelection
+//           disableColumnFilter
+//           disableColumnSelector
+//           disableDensitySelector
+//           disableRowSelectionOnClick
+//         />
+//         {open && <Add columns={columns} setOpen={setOpen} addRow={addRow} />}
+//       </div>
+//       <CsvBtn data={rows} />
+//     </>
+//   );
+// };
+
+// export default GridData;
+
+
+
+
+import React, { useState } from "react";
+// import "./Add.scss";
+
+// const Add = ({ columns, setOpen, addRow }) => {
+//   const [formData, setFormData] = useState({});
+
+//   const handleChange = (e, fieldName) => {
+//     setFormData({ ...formData, [fieldName]: e.target.value });
+//   };
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     addRow(formData);
+//     setOpen(false);
+//   };
+
+//   return (
+//     <div className="add">
+//       <div className="modal">
+//         <span className="close" onClick={() => setOpen(false)}>
+//           {" "}
+//           X{" "}
+//         </span>
+//         <h1>Add New Record</h1>
+//         <form onSubmit={handleSubmit}>
+//           {columns
+//             .filter((item) => item.field !== "id")
+//             .map((column) => (
+//               <div className="item" key={column.field}>
+//                 <label>{column.headerName}</label>
+//                 <input
+//                   type={column.type}
+//                   placeholder={column.headerName}
+//                   onChange={(e) => handleChange(e, column.field)}
+//                 />
+//               </div>
+//             ))}
+//           <button type="submit">Submit</button>
+//         </form>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Add;
